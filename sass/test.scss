@@ -1,0 +1,37 @@
+@import "variable";
+$info : floor(5px/3);
+$strig: "after some information";
+@function changevalue($some){
+  @return $some * 5;
+}
+@mixin my($m1,$m2){
+  color: $m1;
+  background: $m2;
+}
+body {
+  font-family: helvetica;
+
+  h1 {
+    color: $grey;
+  }
+  p {
+    color: $grey;
+    font:{
+      family: arial;
+      size: changevalue($info);
+      weight: bolder;
+
+    }
+    &:after{
+      content: $strig;
+    }
+
+
+/* this is test work */
+
+    &:hover {
+     @include my(black,25);
+
+    }
+  }
+}
